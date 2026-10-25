@@ -1,0 +1,7 @@
+package com.j09.quiz;
+import java.util.*;
+public class QuizService {
+    private List<Question> questions = new ArrayList<>();
+    public void addQuestion(Question q) { questions.add(q); }
+    public List<Question> getQuestions() { return questions; }
+}

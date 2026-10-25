@@ -1,0 +1,21 @@
+package com.j09.quiz;
+import java.util.*;
+public class App {
+    public static void main(String[] args) {
+        QuizService quiz = new QuizService();
+        quiz.addQuestion(new Question("What is Java?", new String[]{"OS","Language","Browser","DB"}, 1));
+        quiz.addQuestion(new Question("What is Jira?", new String[]{"Gaming","Tracking","Cooking","Music"}, 1));
+        Scanner sc = new Scanner(System.in);
+        int score=0;
+        for (Question q: quiz.getQuestions()) {
+            System.out.println("\n"+q.getText());
+            String[] opts=q.getOptions();
+            for(int i=0;i<opts.length;i++) System.out.println((i+1)+". "+opts[i]);
+            System.out.print("Answer 1-4: ");
+            int ans=sc.nextInt()-1;
+            if(ans==q.getCorrectIndex()){System.out.println("Correct!");score++;}
+        }
+        System.out.println("\nScore: "+score+"/"+quiz.getQuestions().size());
+        sc.close();
+    }
+}
